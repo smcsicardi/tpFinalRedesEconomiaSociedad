@@ -1,10 +1,10 @@
 import sys
 import json
-import pandas as pd
 
 archivoJSON = sys.argv[1]
 subreddit = sys.argv[2]
 cantidadComments = int(sys.argv[3])
+
 contador = 0
 
 if subreddit == ".":
@@ -28,6 +28,7 @@ with open(archivoJSON) as f:
 				break
 	cantidadComments = contador
 
+import pandas as pd
 df = pd.DataFrame()
 df["user"] = usuarios
 df["id"] = commentIds
