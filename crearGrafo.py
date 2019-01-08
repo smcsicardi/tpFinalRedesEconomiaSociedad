@@ -1,11 +1,7 @@
-import igraph as ig
-import plotly.plotly as py
-from plotly.graph_objs import *
 import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
 import sys
-
 
 FILE = sys.argv[1]
 OUTPUT_FILE = sys.argv[2]
@@ -26,6 +22,7 @@ comments["padre"] = userParents
 comments = comments[comments["padre"] != commentsNulos]
 
 print(comments.count())
+users = comments["user"].unique()
 
 M=nx.from_pandas_edgelist(comments, "user", 'padre', create_using=nx.MultiGraph())
 g=nx.Graph()
